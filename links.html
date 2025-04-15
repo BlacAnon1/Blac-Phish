@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lizard Generated 🦎</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-900 text-white font-orbitron">
+    <div class="min-h-screen flex items-center justify-center p-4">
+        <div class="bg-gray-800 rounded-xl p-8 w-full max-w-md border border-cyan-400 shadow-lg shadow-cyan-400/50">
+            <h1 class="text-3xl text-center mb-6 text-cyan-400">Lizard Generated 🦎</h1>
+            <p class="mb-4"><strong class="text-cyan-300">Service:</strong> {{ service }}</p>
+            <p class="mb-4"><strong class="text-cyan-300">Email:</strong> {{ email }}</p>
+            <p class="mb-4 break-all"><strong class="text-cyan-300">Link:</strong> <a href="{{ link }}" class="text-cyan-400 hover:underline">{{ link }}</a></p>
+            {% if pdf_path %}
+            <p class="mb-4"><strong class="text-cyan-300">PDF:</strong> <a href="/pdfs/{{ pdf_path.split('/')[-1] }}" class="text-cyan-400 hover:underline">{{ pdf_path.split('/')[-1] }}</a></p>
+            {% endif %}
+            {% if image_path %}
+            <p class="mb-4"><strong class="text-cyan-300">Image:</strong> <a href="/uploads/{{ image_path.split('/')[-1] }}" class="text-cyan-400 hover:underline">{{ image_path.split('/')[-1] }}</a></p>
+            {% endif %}
+            <a href="/" class="block text-center p-3 bg-cyan-500 rounded text-gray-900 font-bold hover:bg-cyan-400 transition transform hover:scale-105">Generate Another 🦎</a>
+        </div>
+    </div>
+    <script>
+        gsap.from("div", { opacity: 0, y: 50, duration: 1, ease: "power3.out" });
+    </script>
+</body>
+</html>

